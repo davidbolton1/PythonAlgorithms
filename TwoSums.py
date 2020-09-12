@@ -30,6 +30,3 @@ class Solution:
             ## If we don't find the solution, update hashmap and set the index = i
             prevMap[n] = i
         return
-
-
-  
