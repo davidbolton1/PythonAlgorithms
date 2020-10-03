@@ -12,3 +12,21 @@
         if result > 2**31 or result < -2**31:
             return 0
         return result
+
+
+
+class Solution(object):
+    def reverseString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        return s[::-1]
+
+class Solution(object):
+    def reverseString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        s.reverse()

@@ -25,3 +25,44 @@ d = collections.OrderedDict(one=1, two=2, three=3)
 
 d
 #OrderedDict([('one', 1), ('two', 2), ('three', 3)])
+
+d["four"] = 4
+
+d.keys()
+#odict_keys(['one', 'two', 'three', 'four'])
+
+
+
+# The defaultdict class is another dictionary sublcass that accepts a callable in its constructor whose return value will be used if a requested key cannot be found
+from collections import defaultdict
+dd = defaultdict(list)
+
+#accessing a missing key creates it and inititalizes it using the default factory, ie the list
+dd["dogs"].append("Rufus")
+dd["dogs"].append("Kathrin")
+dd["dogs"].append("Mr Sniffles")
+
+dd["dogs"]
+['Rufus', 'Kathrin', 'Mr Sniffles']
+
+
+# collections.ChainMap data structure groups multiple dictionaries into a single mapping. Lookups search the underlying mappings one by one until a key is found.
+from collections import ChainMap
+dict1 = {"one": 1, "two": 2}
+dict2= {"three": 3, "four": 4}
+chain = ChainMap(dict1, dict2)
+
+chain
+#ChainMap({'one': 1, 'two': two}, {'three': 3, 'four': 4})
+
+#ChainMap searches each collection in the chain
+#from the left to right until it finds the key (or fails):
+chain["three"]
+#3
+
+chain["one"]
+#1
+
+chain["missing"]
+#Returns an error
+
